@@ -45,7 +45,26 @@ A configuração do IntelliJ incluída no repositório aponta para o JDK 25. As 
 
 ## Configuração do banco de dados
 
-A aplicação espera um banco chamado chouchou_gourmet. Crie-o no MySQL:
+Antes de executar a aplicação, crie um banco de dados MySQL chamado chouchou_gourmet.
 
-```sql
-CREATE DATABASE chouchou_gourmet;
+Configure as seguintes variáveis de ambiente para estabelecer a conexão com o banco de dados:
+
+| Variável | Descrição | Exemplo |
+|---|---|---|
+| DB_URL | URL de conexão com o MySQL | jdbc:mysql://localhost:3306/chouchou_gourmet |
+| DB_USERNAME | Usuário do banco de dados | root |
+| DB_PASSWORD | Senha do banco de dados | sua_senha |
+
+No arquivo application.yml, utilize as variáveis de ambiente:
+
+yaml
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+
+Certifique-se de configurar as três variáveis de ambiente antes de iniciar a aplicação.
+
+*Importante:* Não armazene credenciais reais diretamente no código ou no repositório. Utilize variáveis de ambiente para proteger as informações de acesso ao banco de dados.
