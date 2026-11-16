@@ -57,13 +57,13 @@ Configure as seguintes variáveis de ambiente para estabelecer a conexão com o 
 
 No arquivo application.yml, utilize as variáveis de ambiente:
 
-yaml
+```yaml
 spring:
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-
+```
 
 Certifique-se de configurar as três variáveis de ambiente antes de iniciar a aplicação.
 
